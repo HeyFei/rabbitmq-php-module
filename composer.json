@@ -1,0 +1,15 @@
+{
+  "name": "tools/rabbitmq-php-module",
+  "description":"PHP Client for Rabbitmq",
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.0"
+  },
+  "autoload": {
+    "classmap": [
+      "./"
+    ]
+  }
+}
