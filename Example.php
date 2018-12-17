@@ -1,6 +1,8 @@
 <?php
 
-class Example
+use yii\rabbitmq\RabbitmqQueue;
+
+class Test
 {
     protected $queue_name = '';
     protected $total_msg_count = 10;
@@ -15,8 +17,7 @@ class Example
     public function actionPublish()
     {
         $body = 'String Type';
-        $queue = 'exchange.example';
-        $rabbitmq_server = new \yii\rabbitmq\RabbitmqQueue('127.0.0.1', '5672',  'admin',  'admin', '/');
+        $rabbitmq_server = new RabbitmqQueue('127.0.0.1', '5672',  'admin',  'admin', '/');
         $resp = $rabbitmq_server->sendMessage(
             $this->queue_name,
             $body,
@@ -33,7 +34,7 @@ class Example
      */
     public function actionConsume()
     {
-        $rabbitmq_server = new \yii\rabbitmq\RabbitmqQueue('127.0.0.1', '5672',  'admin',  'admin', '/');
+        $rabbitmq_server = new RabbitmqQueue('127.0.0.1', '5672',  'admin',  'admin', '/');
         $i = 0;
         while (true) {
             usleep(1000*10);
